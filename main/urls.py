@@ -16,16 +16,24 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from aluno.views import aluno_criar,index,aluno_listar,aluno_editar,aluno_remover
+from django.conf import settings
+from django.conf.urls.static import static
+from produto.views import produto_criar,index,produto_listar,produto_editar,produto_remover, produto_detalhe
+from marca.views import marca_criar,marca_listar,marca_editar,marca_remover
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',index,name='index'),
-    path('aluno/',aluno_criar,name='aluno_criar'),
-    path('aluno/editar/<int:id>/',aluno_editar, name='aluno_editar'),
-    path('aluno/remover/<int:id>/',aluno_remover,name='aluno_remover'),
-    path('aluno/listar',aluno_listar,name='aluno_listar'),
-]
+    path('produto/',produto_criar,name='produto_criar'),
+    path('produto/<int:id>/',produto_detalhe,name='produto_detalhe'),
+    path('produto/editar/<int:id>/',produto_editar, name='produto_editar'),
+    path('produto/remover/<int:id>/',produto_remover,name='produto_remover'),
+    path('produto/listar',produto_listar,name='produto_listar'),
+    path('marca/',marca_criar,name='marca_criar'),
+    path('marca/editar/<int:id>/',marca_editar, name='marca_editar'),
+    path('marca/remover/<int:id>/',marca_remover,name='marca_remover'),
+    path('marca/listar',marca_listar,name='marca_listar'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 
