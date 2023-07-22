@@ -34,6 +34,3 @@ urlpatterns = [
     path('marca/remover/<int:id>/',marca_remover,name='marca_remover'),
     path('marca/listar',marca_listar,name='marca_listar'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-
-

@@ -6,7 +6,7 @@ def produto_editar(request,id):
     produto = get_object_or_404(Produto,id=id)
    
     if request.method == 'POST':
-        form = ProdutoForm(request.POST,instance=produto)
+        form = ProdutoForm(request.POST, request.FILES, instance=produto)
 
         if form.is_valid():
             form.save()
@@ -31,10 +31,11 @@ def produto_detalhe(request, id):
 
 def produto_criar(request):
     if request.method == 'POST':
-        form = ProdutoForm(request.POST)
+        form = ProdutoForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             form = ProdutoForm()
+            return redirect('produto_listar')
     else:
         form = ProdutoForm()
 

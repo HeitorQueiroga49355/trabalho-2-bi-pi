@@ -6,7 +6,7 @@ def marca_editar(request,id):
     marca = get_object_or_404(Marca,id=id)
    
     if request.method == 'POST':
-        form = MarcaForm(request.POST,instance=marca)
+        form = MarcaForm(request.POST, request.FILES, instance=marca)
 
         if form.is_valid():
             form.save()
@@ -24,10 +24,11 @@ def marca_remover(request, id):
 
 def marca_criar(request):
     if request.method == 'POST':
-        form = MarcaForm(request.POST)
+        form = MarcaForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             form = MarcaForm()
+            return redirect('marca_listar')
     else:
         form = MarcaForm()
 
