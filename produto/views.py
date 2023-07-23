@@ -53,12 +53,18 @@ def produto_listar(request):
     }
     return render(request, "produto/produtos.html", context)
 
-
 def index(request):
-    total_produtos = Produto.objects.count()
-    total_marcas = Marca.objects.count()
+    produtos = Produto.objects.all()
     context = {
-        'total_produtos': total_produtos,
-        'total_marcas': total_marcas,
+        'produtos': produtos,
     }
     return render(request, "produto/index.html", context)
+
+def crud(request):
+    produtos = Produto.objects.count()
+    marcas = Marca.objects.count()
+    context = {
+        'produtos_total': produtos,
+        'marcas_total': marcas,
+    }
+    return render(request, "produto/crud.html", context)

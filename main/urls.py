@@ -18,11 +18,12 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from produto.views import produto_criar,index,produto_listar,produto_editar,produto_remover, produto_detalhe
+from produto.views import produto_criar,index,crud,produto_listar,produto_editar,produto_remover, produto_detalhe
 from marca.views import marca_criar,marca_listar,marca_editar,marca_remover
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('adm/', crud, name="crud"),
     path('',index,name='index'),
     path('produto/',produto_criar,name='produto_criar'),
     path('produto/<int:id>/',produto_detalhe,name='produto_detalhe'),

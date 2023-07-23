@@ -10,6 +10,7 @@ class Marca(models.Model):
 
 class Produto(models.Model):
     nome = models.CharField(max_length=100)
+    descricao = models.TextField()
     marca = models.ForeignKey(Marca, on_delete=models.CASCADE)
     preco = models.FloatField()
     imagem = models.ImageField(upload_to="images")
