@@ -32,7 +32,7 @@ def marca_criar(request):
     else:
         form = MarcaForm()
 
-    return render(request, "marca/form.html", { 'form': form })
+    return render(request, "marca/formAdm.html", { 'form': form })
 
 
 def marca_listar(request):

@@ -14,7 +14,7 @@ def produto_editar(request,id):
     else:
         form = ProdutoForm(instance=produto)
 
-    return render(request,'produto/form.html',{'form':form})
+    return render(request,'produto/formAdm.html',{'form':form})
 
 
 def produto_remover(request, id):

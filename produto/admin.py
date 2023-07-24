@@ -1,11 +1,7 @@
 from django.contrib import admin
-from .models import Produto, Marca
+from .models import Produto
 
 # Register your models here.
 @admin.register(Produto)
 class ProdutoAdmin(admin.ModelAdmin):
     list_display = ('nome', 'descricao', 'marca', 'preco', 'imagem')
-
-@admin.register(Marca)
-class MarcaAdmin(admin.ModelAdmin):
-    list_display = ('nome', 'logo')
