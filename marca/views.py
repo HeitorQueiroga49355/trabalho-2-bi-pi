@@ -1,26 +1,28 @@
-from django.shortcuts import render,get_object_or_404,redirect
+from django.shortcuts import render, get_object_or_404, redirect
 from produto.models import Marca
 from .forms import MarcaForm
 
-def marca_editar(request,id):
-    marca = get_object_or_404(Marca,id=id)
-   
+
+def marca_editar(request, id):
+    marca = get_object_or_404(Marca, id=id)
+
     if request.method == 'POST':
         form = MarcaForm(request.POST, request.FILES, instance=marca)
 
         if form.is_valid():
             form.save()
-            return redirect('marca_listar')
+            return redirect('adm_marca_listar')
     else:
         form = MarcaForm(instance=marca)
 
-    return render(request,'marca/form.html',{'form':form})
+    return render(request, 'marca/formAdm.html', {'form': form})
 
 
 def marca_remover(request, id):
     marca = get_object_or_404(Marca, id=id)
     marca.delete()
-    return redirect('marca_listar')
+    return redirect('adm_marca_listar')
+
 
 def marca_criar(request):
     if request.method == 'POST':
@@ -28,16 +30,16 @@ def marca_criar(request):
         if form.is_valid():
             form.save()
             form = MarcaForm()
-            return redirect('marca_listar')
+            return redirect('adm_marca_listar')
     else:
         form = MarcaForm()
 
-    return render(request, "marca/formAdm.html", { 'form': form })
+    return render(request, "marca/formAdm.html", {'form': form})
 
 
-def marca_listar(request):
+def adm_marca_listar(request):
     marcas = Marca.objects.all()
     context = {
         'marcas': marcas
     }
-    return render(request, "marca/marcas.html", context)
+    return render(request, "marca/marcasAdm.html", context)

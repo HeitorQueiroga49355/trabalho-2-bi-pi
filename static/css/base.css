@@ -6,7 +6,9 @@
   outline: 0;
 }
 
-ul, ol, li {
+ul,
+ol,
+li {
   list-style-type: none;
 }
 
@@ -15,7 +17,8 @@ a {
   color: inherit;
 }
 
-html, body {
+html,
+body {
   font-family: "Roboto", sans-serif;
   font-size: 16px;
 }
