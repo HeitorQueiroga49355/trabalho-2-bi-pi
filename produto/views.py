@@ -51,7 +51,7 @@ def produto_listar(request):
     context = {
         'produtos': produtos
     }
-    return render(request, "produto/produtos.html", context)
+    return render(request, "produto/produtosAdm.html", context)
 
 def index(request):
     produtos = Produto.objects.all()
