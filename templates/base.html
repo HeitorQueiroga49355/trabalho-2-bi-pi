@@ -1,76 +1,71 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{% static 'css/base.css' %}" rel="stylesheet">
-    {% block head %}
-    {% endblock %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="{% static 'css/base.css' %}" rel="stylesheet" />
+    {% block head %} {% endblock %}
     <title>Projeto PI</title>
-</head>
-<body>
+  </head>
+  <body>
     <header class="header-container">
-        <div class="header-container-content">
-            <div class="header-content">
-                <h1>PROJETO</h1>
-                <nav>
-                    <ul>
-                        <li><a href="{% url 'index' %}">HOME</a></li>
-                        <li><a href="">ADMIN</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="header-search">
-                <input type="text">
-            </div>
+      <div class="header-container-content">
+        <div class="header-content">
+          <h1>PROJETO</h1>
+          <nav>
+            <ul>
+              <li><a href="{% url 'home' %}">HOME</a></li>
+              <li><a href="">ADMIN</a></li>
+            </ul>
+          </nav>
         </div>
+        <div class="header-search">
+          <input type="text" />
+        </div>
+      </div>
     </header>
 
     <article class="content-container">
-        {% block content %}
-
-        {% endblock %}
+      {% block content %} {% endblock %}
     </article>
 
-    {% block sidecontent %}
+    {% block sidecontent %} {% endblock %}
 
-    {% endblock %}
-    
     <footer class="footer-container">
-        <div class="footer-container-content">
-            <div class="footer-content">
-                <h3>Endereço</h3>
-                <ul>
-                    <li>Nº 0413</li>
-                    <li>Rua Lorem</li>
-                    <li>Bairro Ipsum</li>
-                    <li>Cidade Dolor</li>
-                    <li>Estado Sit Amet</li>
-                </ul>
-            </div>
-            <div class="footer-content">
-                <h3>Contato</h3>
-                <ul>
-                    <li>E-mail</li>
-                    <li>Twitter</li>
-                    <li>Instagram</li>
-                    <li>Youtube</li>
-                </ul>
-            </div>
-            <div class="footer-content">
-                <h3>Lojas Principais</h3>
-                <ul>
-                    <li>Amazing</li>
-                    <li>Europeias</li>
-                    <li>Revista Luiza</li>
-                    <li>Shopping</li>
-                    <li>Mercado Controlado</li>
-                    <li>Apartamentos Alagoas</li>
-                    <li>Xablau</li>
-                </ul>
-            </div>
+      <div class="footer-container-content">
+        <div class="footer-content">
+          <h3>Endereço</h3>
+          <ul>
+            <li>Nº 0413</li>
+            <li>Rua Lorem</li>
+            <li>Bairro Ipsum</li>
+            <li>Cidade Dolor</li>
+            <li>Estado Sit Amet</li>
+          </ul>
         </div>
+        <div class="footer-content">
+          <h3>Contato</h3>
+          <ul>
+            <li>E-mail</li>
+            <li>Twitter</li>
+            <li>Instagram</li>
+            <li>Youtube</li>
+          </ul>
+        </div>
+        <div class="footer-content">
+          <h3>Lojas Principais</h3>
+          <ul>
+            <li>Amazing</li>
+            <li>Europeias</li>
+            <li>Revista Luiza</li>
+            <li>Shopping</li>
+            <li>Mercado Controlado</li>
+            <li>Apartamentos Alagoas</li>
+            <li>Xablau</li>
+          </ul>
+        </div>
+      </div>
     </footer>
-</body>
+  </body>
 </html>
