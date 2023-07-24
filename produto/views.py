@@ -34,8 +34,9 @@ def produto_criar(request):
         form = ProdutoForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            form = ProdutoForm()
             return redirect('produto_listar')
+        else:
+            print(form.errors)
     else:
         form = ProdutoForm()
 
@@ -43,7 +44,7 @@ def produto_criar(request):
         'form': form
     }
 
-    return render(request, "produto/form.html", context)
+    return render(request, "produto/formAdm.html", context)
 
 
 def produto_listar(request):

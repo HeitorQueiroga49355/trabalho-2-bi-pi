@@ -10,6 +10,7 @@ class ProdutoForm(ModelForm):
         widgets = {
             'nome' : forms.TextInput(attrs={'class': 'form-control' }),
             'marca' : forms.Select(attrs={'class': 'form-control' }),
+            'descricao': forms.TextInput(attrs={'class': 'form-control'}),
             'preco' : forms.NumberInput(attrs={'class': 'form-control' }),
             'imagem' : forms.FileInput(attrs={'class': 'form-control' }),
         }
