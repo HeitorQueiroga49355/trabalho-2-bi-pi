@@ -15,7 +15,7 @@
   </head>
   <body>
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">IFRN - 4º Anos</a>
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">PROJETO</a>
       <input
         class="form-control form-control-dark w-100"
         type="text"
@@ -34,7 +34,7 @@
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="{% url 'crud' %}">
+                <a class="nav-link {% if active == "dashboard" %} active {% endif %}" href="{% url 'crud' %}">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -56,7 +56,11 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'produto_listar' %}">
+                <a
+                  class="nav-link {% if active == "produtos" %} active {% endif %}"
+                  id="product-nav-li"
+                  href="{% url 'produto_listar' %}"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -78,7 +82,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'adm_marca_listar' %}">
+                <a class="nav-link {% if active == "marcas" %} active {% endif %}" href="{% url 'adm_marca_listar' %}">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"

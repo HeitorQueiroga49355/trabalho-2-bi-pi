@@ -15,7 +15,7 @@ def marca_editar(request, id):
     else:
         form = MarcaForm(instance=marca)
 
-    return render(request, 'marca/formAdm.html', {'form': form})
+    return render(request, 'marca/formAdm.html', {'form': form, 'active': 'marcas'})
 
 
 def marca_remover(request, id):
@@ -34,12 +34,12 @@ def marca_criar(request):
     else:
         form = MarcaForm()
 
-    return render(request, "marca/formAdm.html", {'form': form})
+    return render(request, "marca/formAdm.html", {'form': form, 'active': 'marcas'})
 
 
 def adm_marca_listar(request):
     marcas = Marca.objects.all()
     context = {
-        'marcas': marcas
+        'marcas': marcas, 'active': 'marcas',
     }
     return render(request, "marca/marcasAdm.html", context)

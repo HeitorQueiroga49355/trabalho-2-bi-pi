@@ -21,7 +21,7 @@
         <td>{{ produto.nome }}</td>
         <td>{{ produto.preco }}</td>
         <td>{{ produto.marca.nome }}</td>
-        <td><img src="../media/{{ produto.imagem }}" width="28" height="28"/></td>
+        <td><img src="/media/{{ produto.imagem }}" alt="" width="28" height="28"/></td>
         <td>
           <a href="{% url 'produto_editar' id=produto.id %}" class="btn btn-primary btn-sm">Editar</a>
           <a href="{% url 'produto_remover' id=produto.id %}" class="btn btn-danger btn-sm">Remover</a>
