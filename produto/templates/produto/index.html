@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+  <link href="{% static 'css/home.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+ 
+  <div class="banner" >
+    <img src="{% static 'img/banner.png' %}" alt="Banner de black friday">
+  </div>
+
+  <section class="product-container">
+    <h2>Produtos</h2>
+    <div class="product-grid">
+      {% for produto in produtos %}
+        <a href="{% url 'produto_detalhe' produto.id %}">
+          <div class="product-card">
+            <div>
+              <img src="../media/{{ produto.imagem }}" alt="Image de produto">
+            </div>
+            <h3>{{ produto.nome }}</h3>
+            <span>R$ {{ produto.preco }}</span>
+            <img class="logo" src="../media/{{ produto.marca.logo }}" alt="Logo da marca">
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </section>
+
+{% endblock %}

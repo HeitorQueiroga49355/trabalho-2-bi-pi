@@ -1,31 +1,22 @@
-"""
-URL configuration for main project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
-from aluno.views import aluno_criar,index,aluno_listar,aluno_editar,aluno_remover
+from django.conf import settings
+from django.conf.urls.static import static
+from produto.views import produto_criar, index, crud, produto_listar, produto_editar, produto_remover, produto_detalhe
+from marca.views import marca_criar, adm_marca_listar, marca_editar, marca_remover
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',index,name='index'),
-    path('aluno/',aluno_criar,name='aluno_criar'),
-    path('aluno/editar/<int:id>/',aluno_editar, name='aluno_editar'),
-    path('aluno/remover/<int:id>/',aluno_remover,name='aluno_remover'),
-    path('aluno/listar',aluno_listar,name='aluno_listar'),
-]
-
-
-
+    path('adm/', crud, name="crud"),
+    path('adm/produto/criar', produto_criar, name='produto_criar'),
+    path('adm/produto/editar/<int:id>/', produto_editar, name='produto_editar'),
+    path('adm/produto/remover/<int:id>/',
+         produto_remover, name='produto_remover'),
+    path('adm/produto/listar', produto_listar, name='produto_listar'),
+    path('adm/marca/listar', adm_marca_listar, name="adm_marca_listar"),
+    path('adm/marca/criar', marca_criar, name='marca_criar'),
+    path('adm/marca/editar/<int:id>/', marca_editar, name='marca_editar'),
+    path('amd/marca/remover/<int:id>/', marca_remover, name='marca_remover'),
+    path('', index, name='home'),
+    path('produto/<int:id>/', produto_detalhe, name='produto_detalhe'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
